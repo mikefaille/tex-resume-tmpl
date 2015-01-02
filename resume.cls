@@ -16,9 +16,20 @@
 
 \LoadClass[11pt,letterpaper]{article}
 
+\usepackage[cm-default]{fontspec} 
+\usepackage{lmodern}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\usepackage{bold-extra}
+\usepackage{shadowtext}
+\shadowoffset{1pt}
+
+\definecolor{sky-blue-6}{RGB}{0,0,128}
+
 \usepackage[parfill]{parskip}       % Do not indent aragraphs
 \usepackage{array}                  % required for boldface tabular columns
 \usepackage{ifthen}
+
 
 \nofiles                            % .aux files are not needed for resumes
 \pagestyle{empty}                   % resumes do not need page numbers
@@ -44,6 +55,18 @@
   }
 }
 
+% One or two address lines can be specified 
+\let \@interests \relax
+\let \@qualities \relax
+
+% \address command can be used to set first and second address (optional)
+\def \interestsNqualities #1{
+  \def \@interests {#1}
+  \def \@qualities {#1}
+}
+
+
+
 % \printaddress is used to style an address line (given as input)
 \def \printaddress #1{
   \begingroup
@@ -62,13 +85,16 @@
   \endgroup
 }
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT: Create the head of the document
 
 \let\ori@document=\document
 \renewcommand{\document}{
   \ori@document                     % Begin document
-  \printname                        % Print the name specified with \name
+  \textit{  \printname}                        % Print the name specified with \name
   \@ifundefined{@addressone}{}{     % Print the first address if specified
     \printaddress{\@addressone}}
   \@ifundefined{@addresstwo}{}{     % Print the second address if specified
@@ -81,7 +107,7 @@
 % Used to create large resume section
 \newenvironment{rSection}[1]{
   \sectionskip
-  \MakeUppercase{\bf #1}
+  {\leftmargin=0em}\raggedleft{\textcolor{sky-blue-6}{\shadowtext{\textit{\uppercase{\textbf{\Large #1}}}}}}
   \sectionlineskip
   \hrule
   \begin{list}{}{
@@ -98,7 +124,7 @@
   %%    Employer (bold)                     Dates (regular)    %%
   %%    Title (emphasis)                Location (emphasis)    %%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  {\bf #1}                 \hfill                  {    #2}
+  \textcolor{sky-blue-6}{\shadowtext{\textit{\uppercase{\textbf{\scriptsize #1}}}}}                \hfill                  {    #2}
   \ifthenelse{\equal{#3}{}}{}{
   \\
   {\em #3}                 \hfill                  {\em #4}
