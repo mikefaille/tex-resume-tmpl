@@ -7,7 +7,7 @@ head of the document and provides resume section and subsection environments
 customized.
 
 ### In developpement
-Some feature from mordern CV will be cherry pick. I want contact information footer on all page from 2th.
+Some feature from modern CV will be cherry pick. I want contact information footer on all page from 2th.
 http://www.ctan.org/pkg/moderncv
 
 I want his customization that permit him to share (unify) CV info with motivation letter.
