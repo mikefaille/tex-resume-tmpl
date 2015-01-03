@@ -13,7 +13,7 @@ http://www.ctan.org/pkg/moderncv
 I want his customization that permit him to share (unify) CV info with motivation letter.
 http://fredrikloch.me/post/using-moderncv/
 
-And, my work is mainly a fork from  (SDL-like licence):
+And, my work is mainly a fork from  (SDL-like license):
 https://github.com/treyhunner/resume
 (thank you Trey Hunner !)
 
